@@ -13,24 +13,18 @@ private class SnackBar {
         Snack pretzel = new Snack("Pretzel", 30, 2.00, 1);
         Snack chocoBar = new Snack("Chocolate Bar", 36, 1.00, 1);
 
-        jane.buySnacks(soda, 1);
-        System.out.println();
-        jane.buySnacks(pretzel, 1);
-        System.out.println();
+        System.out.println(jane.buySnacks(soda, 1) + "\n");
+        System.out.println(jane.buySnacks(pretzel, 1) + "\n");
 
-        bob.buySnacks(soda, 2)
-        System.out.println();
+        System.out.println(bob.buySnacks(soda, 2) + "\n");
 
-        jane.addCash(10.00);
-        System.out.println();
-        jane.buySnacks(chocoBar, 1);
-        System.out.println();
+        System.out.println(jane.addCash(10.00) + "\n");
+        System.out.println(jane.buySnacks(chocoBar, 1) + "\n");
 
-        pretzel.addQuantity(12);
+        System.out.println(pretzel.addQuantity(12) + "\n");
         pretzel.setCost(3.00);
-        System.out.println();
 
-        bob.buySnacks(pretzel, 3)
+        System.out.println(bob.buySnacks(pretzel, 3));
 
     }
 
