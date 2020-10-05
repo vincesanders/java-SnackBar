@@ -7,7 +7,7 @@ public class VendingMachine {
     private String name;
 
     public VendingMachine(String name) {
-        id = ++maxId;
+        id = maxId++;
         this.name = name;
     }
 

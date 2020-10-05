@@ -8,7 +8,7 @@ public class Snack {
     private double cost;
     private int vendingMachineId;
     public Snack(String name, int quantity, double cost, int vendingMachineId) {
-        id = ++maxId;
+        id = maxId++;
         this.name = name;
         this.quantity = quantity;
         this.cost = cost;
@@ -19,16 +19,20 @@ public class Snack {
     public void addQuantity(int quantityToAdd) {
         if (quantityToAdd > 0) {
             this.quantity += quantityToAdd;
+            return "Quantity of " + this.name + " is " + this.quantity;
         }
+        return "Please enter a valid quantity."
     }
 
     public void buySnack(int quantityToBuy) {
         if (quantityToBuy > 0 && quantityToBuy <= this.quantity) {
             this.quantity -= quantityToBuy;
+            return "Quantity of " + this.name + " on hand is " + this.quantity;
         }
+        return 'Not enough money or not enough snacks.'
     }
 
-    public double totalCost(int quantityToBuy) {
+    public double getTotalCost(int quantityToBuy) {
         if (quantityToBuy > 0 && quantityToBuy <= this.quantity) {
             // I change the price to an int to get rid of any weirdness when working with a double
             // and then convert it back again when returned
