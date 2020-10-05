@@ -14,19 +14,21 @@ public class Customer {
     }
 
     // Methods
-    public void addCash(double cash) {
+    public String addCash(double cash) {
         if (cash > 0) {
             this.cashOnHand += cash;
             return this.name + " cash on hand " + this.cashOnHand;
         }
-        return "Please enter a valid amount of cash to add."
+        return "Please enter a valid amount of cash to add.";
     }
 
-    public void buySnacks(Snack snack, int quantity) {
+    public String buySnacks(Snack snack, int quantity) {
         double totalCost = snack.getTotalCost(quantity);
         if (totalCost <= this.cashOnHand) {
             this.cashOnHand -= totalCost;
-            return this.name + " cash on hand " + this.cashOnHand;
+            String result = this.name + " cash on hand " + this.cashOnHand;
+            System.out.println(result + "\n" + snack.buySnack(quantity) + "\n");
+            return result;
         }
 
         return "Not enough money.";

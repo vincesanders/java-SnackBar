@@ -1,7 +1,7 @@
 package snackbar;
 
 public class Snack {
-    private static in maxId = 0;
+    private static int maxId = 0;
     private int id;
     private String name;
     private int quantity;
@@ -16,28 +16,29 @@ public class Snack {
     }
 
     // Methods
-    public void addQuantity(int quantityToAdd) {
+    public String addQuantity(int quantityToAdd) {
         if (quantityToAdd > 0) {
             this.quantity += quantityToAdd;
             return "Quantity of " + this.name + " is " + this.quantity;
         }
-        return "Please enter a valid quantity."
+        return "Please enter a valid quantity.";
     }
 
-    public void buySnack(int quantityToBuy) {
+    public String buySnack(int quantityToBuy) {
         if (quantityToBuy > 0 && quantityToBuy <= this.quantity) {
             this.quantity -= quantityToBuy;
-            return "Quantity of " + this.name + " on hand is " + this.quantity;
+            return "Quantity of " + this.name + " is " + this.quantity;
         }
-        return 'Not enough money or not enough snacks.'
+        return "Not enough money or not enough snacks.";
     }
 
     public double getTotalCost(int quantityToBuy) {
         if (quantityToBuy > 0 && quantityToBuy <= this.quantity) {
             // I change the price to an int to get rid of any weirdness when working with a double
             // and then convert it back again when returned
-            return (double)((int)(this.cost * 100) * quantityToBuy) / 100
+            return (double)((int)(this.cost * 100) * quantityToBuy) / 100;
         }
+        return 0;
     }
 
     // Getters
